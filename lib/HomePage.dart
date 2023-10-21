@@ -2,6 +2,7 @@ import 'package:calculator/Colors.dart';
 import 'package:calculator/MyWidgets/MyButton.dart';
 import 'package:calculator/MyWidgets/ResultDisplay.dart';
 import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -11,7 +12,44 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String input = "";
+  String input = "234234";
+  String result = "64564";
+  void inputHandle(String userInput) {
+    // Clear all Input data
+  try{
+    
+    if (userInput == "<") {
+      setState(() {
+        input = input.substring(0, input.length - 1);
+      });
+    } else if (userInput == "AC") {
+      setState(() {
+        input = "";
+        result = "";
+      });
+    } else if (userInput == "=") {
+      final finalInput = input.replaceAll('x', '*');
+      Parser p = Parser();
+      Expression exp = p.parse(finalInput);
+      ContextModel contextModel = ContextModel();
+      setState(() {
+        result = exp.evaluate(EvaluationType.REAL, contextModel).toString();
+      });
+    } else {
+      setState(() {
+        input = input + userInput;
+      });
+    }
+  }
+  catch(ex)
+  {
+    setState(() {
+      result = ex.toString();
+    });
+    print(ex);
+  }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,8 +82,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: [
                     SizedBox(height: 20),
                     ResultDisplay(
-                      input: input,
-                      result: "",
+                      inputText: input,
+                      resultText: result,
                     ),
                   ],
                 ),
@@ -55,31 +93,30 @@ class _MyHomePageState extends State<MyHomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         MyButton(
+                          onTap: () {
+                            inputHandle("AC");
+                          },
                           btnText: "AC",
-                          onPress: () {
-                            setState(() {
-                              input = "";
-                            });
-                          },
                         ),
                         MyButton(
-                          btnText: "-/+",
-                            onPress: () {
-                            setState(() {
-                              input = "";
-                            });
+                          onTap: () {
+                            inputHandle("/");
                           },
-                        ),
-                        MyButton(
-                          btnText: "%",
-                            onPress: () {
-                            setState(() {
-                              input = "";
-                            });
-                          },
-                        ),
-                        MyButton(
                           btnText: "/",
+                          isFunBtn: true,
+                        ),
+                        MyButton(
+                          onTap: () {
+                            inputHandle("%");
+                          },
+                          btnText: "%",
+                          isFunBtn: true,
+                        ),
+                        MyButton(
+                          onTap: () {
+                            inputHandle("<");
+                          },
+                          btnText: "<",
                           isFunBtn: true,
                         ),
                       ],
@@ -89,15 +126,27 @@ class _MyHomePageState extends State<MyHomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         MyButton(
+                          onTap: () {
+                            inputHandle("7");
+                          },
                           btnText: "7",
                         ),
                         MyButton(
+                          onTap: () {
+                            inputHandle("8");
+                          },
                           btnText: "8",
                         ),
                         MyButton(
+                          onTap: () {
+                            inputHandle("9");
+                          },
                           btnText: "9",
                         ),
                         MyButton(
+                          onTap: () {
+                            inputHandle("x");
+                          },
                           btnText: "X",
                           isFunBtn: true,
                         ),
@@ -108,15 +157,27 @@ class _MyHomePageState extends State<MyHomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         MyButton(
+                          onTap: () {
+                            inputHandle("4");
+                          },
                           btnText: "4",
                         ),
                         MyButton(
+                          onTap: () {
+                            inputHandle("5");
+                          },
                           btnText: "5",
                         ),
                         MyButton(
+                          onTap: () {
+                            inputHandle("6");
+                          },
                           btnText: "6",
                         ),
                         MyButton(
+                          onTap: () {
+                            inputHandle("-");
+                          },
                           btnText: "-",
                           isFunBtn: true,
                         ),
@@ -127,15 +188,27 @@ class _MyHomePageState extends State<MyHomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         MyButton(
+                          onTap: () {
+                            inputHandle("1");
+                          },
                           btnText: "1",
                         ),
                         MyButton(
+                          onTap: () {
+                            inputHandle("2");
+                          },
                           btnText: "2",
                         ),
                         MyButton(
+                          onTap: () {
+                            inputHandle("3");
+                          },
                           btnText: "3",
                         ),
                         MyButton(
+                          onTap: () {
+                            inputHandle("+");
+                          },
                           btnText: "+",
                           isFunBtn: true,
                         ),
@@ -146,12 +219,21 @@ class _MyHomePageState extends State<MyHomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         MyButton(
+                          onTap: () {
+                            inputHandle("0");
+                          },
                           btnText: "0",
                         ),
                         MyButton(
-                          btnText: ",",
+                          onTap: () {
+                            inputHandle(".");
+                          },
+                          btnText: ".",
                         ),
                         MyButton(
+                          onTap: () {
+                            inputHandle("=");
+                          },
                           btnText: "=",
                           isFunBtn: true,
                           isEqualBtn: true,

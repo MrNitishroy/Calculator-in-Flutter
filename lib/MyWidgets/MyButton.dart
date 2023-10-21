@@ -5,14 +5,15 @@ class MyButton extends StatelessWidget {
   final String btnText;
   final bool isFunBtn ; 
   final bool isEqualBtn;
-  final VoidCallback onPress;
+  final VoidCallback onTap;
+ 
 
-  const MyButton({super.key, required this.btnText,  this.isFunBtn=false,  this.isEqualBtn = false, required this.onPress});
+  const MyButton({super.key, required this.btnText,  this.isFunBtn=false,  this.isEqualBtn = false, required this.onTap, });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onPress,
+      onTap:onTap ,
       child: Container(
         padding: EdgeInsets.all(15),
         width: isEqualBtn ? 175 : 80,
