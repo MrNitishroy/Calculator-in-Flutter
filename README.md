@@ -1,16 +1,46 @@
-# calculator
 
-A new Flutter project.
+# 📙Calculator in Flutter  
+This is a normal flutter calculator app that i have made in flutter if you want to make then you can watch my youtube video on the @flutter hero channel  https://www.youtube.com/watch?v=8O4fFDa-ZBE&list=PLe9ZTrJrS7SkE7MsmiAYY4xR4V6Gzf1Cu&ab_channel=Flutterhero
+    
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Demo/Tutorial video 
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Youtube channel https://www.youtube.com/watch?v=8O4fFDa-ZBE&list=PLe9ZTrJrS7SkE7MsmiAYY4xR4V6Gzf1Cu&ab_channel=Flutterhero
+
+
+## Screenshots
+
+![App Screenshot](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8o-amffHQg2a2Xli-WsHGqpHRdShGFM9IQWqmQcF7wvJHN1LDIKCTMBGnFAbyUxd83LE-BK8himAy0NHrJqU_ypSMmqPFKaCh4-eRm_yLsSmG-m042NqcMcGnw2RYae5reOIHixqF5ikbF3bI9rI2Q-TX5G_zTdX3qau_WF9d2tp6hATp2acX3Lpcak8/s10278/Calculator.jpg)
+
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/MrNitishroy/BMI-CALCULATOR
+```
+
+Open project in the vs code
+
+```bash
+  flutter pub get
+```
+
+run app 
+
+```bash
+  flutter run
+```
+
+
+## Authors
+
+- [@MrNitishRoy](https://www.github.com/MrNitishroy)
+- [@YoutubeChannel](https://www.youtube.com/channel/UCCbgU4H2YQVZUqQmhZXKpfQ)
+- [@Linkdin](https://www.linkedin.com/in/mrnitishkumar/)
+
